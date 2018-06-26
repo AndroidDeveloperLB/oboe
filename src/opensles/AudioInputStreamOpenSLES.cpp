@@ -218,21 +218,14 @@ Result AudioInputStreamOpenSLES::requestStart() {
     return result;
 }
 
-
 Result AudioInputStreamOpenSLES::requestPause() {
-    LOGD("AudioInputStreamOpenSLES::requestStop()");
-    Result result = setRecordState(SL_RECORDSTATE_PAUSED);
-    if (result != Result::OK) {
-        result = Result::ErrorInvalidState; // TODO review
-    } else {
-        setState(StreamState::Pausing);
-        mPositionMillis.reset32(); // OpenSL ES resets its millisecond position when paused.
-    }
-    return result;
+    LOGW("AudioInputStreamOpenSLES::%s() UNIMPLEMENTED", __func__);
+    return Result::ErrorUnimplemented; // Matches AAudio behavior.
 }
 
 Result AudioInputStreamOpenSLES::requestFlush() {
-    return Result::ErrorUnimplemented; // TODO
+    LOGW("AudioInputStreamOpenSLES::%s() UNIMPLEMENTED", __func__);
+    return Result::ErrorUnimplemented; // Matches AAudio behavior.
 }
 
 Result AudioInputStreamOpenSLES::requestStop() {
